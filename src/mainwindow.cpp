@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent):
     connect(ui->refreshPorts, &QPushButton::pressed, this, &MainWindow::refreshPorts);
     connect(ui->connect, &QPushButton::pressed, this, &MainWindow::openCloseConnection);
     connect(ui->staticBaselineReset, &QPushButton::pressed, this, &MainWindow::resetStaticBaseline);
+    connect(ui->staticRawValues, &QCheckBox::toggled, this, &MainWindow::showStaticRaw);
     connect(ui->logBrowse, &QPushButton::pressed, this, &MainWindow::selectLogFile);
     connect(ui->log, &QPushButton::pressed, this, &MainWindow::startStopLog);
     connect(this, &MainWindow::closeConnectionSignal, this, &MainWindow::closeConnection);

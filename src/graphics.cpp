@@ -135,11 +135,14 @@ void MainWindow::updateGraphStatic()
         {
             uint16_t d = fd.finger[f].staticTactile[i];
 
-            // Remove baseline.  If going lower than baseline, show as 0
-            if (d < staticGraphs[f].baseline[i])
-                d = 0;
-            else
-                d -= staticGraphs[f].baseline[i];
+            if (!ui->staticRawValues->isChecked())
+            {
+                // Remove baseline.  If going lower than baseline, show as 0
+                if (d < staticGraphs[f].baseline[i])
+                    d = 0;
+                else
+                    d -= staticGraphs[f].baseline[i];
+            }
 
             // Keep maximum data for
             if (d > staticGraphs[f].maxRange)
@@ -345,4 +348,9 @@ void MainWindow::resetStaticBaseline()
         staticGraphs[f].shouldResetBaseline = true;
         staticGraphs[f].maxRange = 0;
     }
+}
+
+void MainWindow::showStaticRaw()
+{
+    ui->staticBaselineReset->setEnabled(!ui->staticRawValues->isChecked());
 }

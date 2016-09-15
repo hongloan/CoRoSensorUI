@@ -48,6 +48,7 @@ private slots:
     void slowUiUpdate();
     void updateFFT();
     void resetStaticBaseline();
+    void showStaticRaw();
     void log();
     void selectLogFile();
     void startStopLog();
