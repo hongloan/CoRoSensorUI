@@ -30,6 +30,7 @@ void MainWindow::refreshPortsAutoconnect(bool allowAutoconnect)
 {
     int index = 0;
     ui->availablePorts->clear();
+    bool foundFinger = false;
     foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
     {
         QString desc = info.description();
@@ -39,12 +40,15 @@ void MainWindow::refreshPortsAutoconnect(bool allowAutoconnect)
 
         // Note: for some strange reason, on windows the description is not the updated CoRo Tactile Sensor
         if (info.description() == "CoRo Tactile Sensor" || info.description() == "Cypress USB UART")
+        {
             ui->availablePorts->setCurrentIndex(index);
+            foundFinger = true;
+        }
 
         ++index;
     }
 
-    if (ui->autoconnect->isChecked() && allowAutoconnect)
+    if (foundFinger && ui->autoconnect->isChecked() && allowAutoconnect)
         openConnection();
 }
 

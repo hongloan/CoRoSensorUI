@@ -228,8 +228,8 @@ void MainWindow::updateGraphDynamic()
                     maxPower = power;
             }
 
-            if (maxPower > 150000)
-                maxPower = 150000;
+            if (maxPower > 1000000)
+                maxPower = 1000000;
 
             mglGraph *g = dynamicGraphs[f].fftGraph;
             mreal xvalues[4] = {512, 1024, 1536, 2048};
