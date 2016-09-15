@@ -118,6 +118,13 @@ void MainWindow::updateGraphStatic()
 
     for (int f = 0; f < FINGER_COUNT; ++f)
     {
+        if (staticGraphs[f].shouldResetBaseline)
+        {
+            staticGraphs[f].shouldResetBaseline = false;
+            for (int i = 0; i < FINGER_STATIC_TACTILE_COUNT; ++i)
+                staticGraphs[f].baseline[i] = fd.finger[f].staticTactile[i];
+        }
+
         // Slowly reduce maxRange to zoom back in
         staticGraphs[f].maxRange *= 0.95;
         if (staticGraphs[f].maxRange < 3000)
@@ -128,10 +135,11 @@ void MainWindow::updateGraphStatic()
         {
             uint16_t d = fd.finger[f].staticTactile[i];
 
-            // Update baseline if going lower and remove baseline
+            // Remove baseline.  If going lower than baseline, show as 0
             if (d < staticGraphs[f].baseline[i])
-                staticGraphs[f].baseline[i] = d;
-            d -= staticGraphs[f].baseline[i];
+                d = 0;
+            else
+                d -= staticGraphs[f].baseline[i];
 
             // Keep maximum data for
             if (d > staticGraphs[f].maxRange)
@@ -334,8 +342,7 @@ void MainWindow::resetStaticBaseline()
 {
     for (int f = 0; f < FINGER_COUNT; ++f)
     {
-        for (int i = 0; i < FINGER_STATIC_TACTILE_COUNT; ++i)
-            staticGraphs[f].baseline[i] = 0xFFFF;
+        staticGraphs[f].shouldResetBaseline = true;
         staticGraphs[f].maxRange = 0;
     }
 }

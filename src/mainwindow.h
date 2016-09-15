@@ -89,6 +89,7 @@ private:
         mglGraph *graph;
         QLabel *widget;
 
+        bool shouldResetBaseline;
         uint16_t baseline[FINGER_STATIC_TACTILE_COUNT];
         uint16_t maxRange;
     };
