@@ -92,7 +92,7 @@ private:
 
         bool shouldResetBaseline;
         uint16_t baseline[FINGER_STATIC_TACTILE_COUNT];
-        uint16_t maxRange;
+        unsigned int maxRange;
     };
     struct DynamicGraph
     {
