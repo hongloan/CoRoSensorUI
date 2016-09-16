@@ -57,7 +57,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;CoRo Tactile Sensor UI&lt;br/&gt;Copyright 2016 CoRo Laboratory&lt;br/&gt;GPL v3.0+&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;github.com/TODO/TODO&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;github.com/TODO/TODO&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;CoRo Tactile Sensor UI&lt;br/&gt;Copyright 2016 CoRo Laboratory&lt;br/&gt;GPL v3.0+&lt;br/&gt;&lt;br/&gt;&lt;a href=&quot;https://github.com/hongloan/CoRoSensorUI&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;github.com/hongloan/CoRoSensorUI&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="textFormat">
           <enum>Qt::RichText</enum>
